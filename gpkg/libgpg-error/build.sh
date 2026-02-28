@@ -7,6 +7,9 @@ TERMUX_PKG_SRCURL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-${T
 TERMUX_PKG_SHA256=69405349e0a633e444a28c5b35ce8f14484684518a508dc48a089992fe93e20a
 TERMUX_PKG_DEPENDS="glibc, bash-glibc"
 
+# 添加配置选项，禁用测试以避免 C23 关键字冲突
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-tests"
+
 termux_step_pre_configure() {
 	autoreconf -vfi
 }
