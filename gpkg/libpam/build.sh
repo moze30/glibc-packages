@@ -13,11 +13,4 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 -Deconf=disabled
 -Dselinux=disabled
 -Dpam_userdb=disabled
--Ddocbook-rng=$TERMUX_PKG_SRCDIR/docbookxi.rng
 "
-
-termux_step_pre_configure() {
-	termux_download https://docbook.org/xml/5.0/rng/docbookxi.rng \
-		$TERMUX_PKG_SRCDIR/docbookxi.rng \
-		SKIP_CHECKSUM
-}
