@@ -58,15 +58,15 @@ termux_step_make_install() {
 	install -m755 Tools/scripts/{README,*py} ${TERMUX_PREFIX}/lib/python${_MAJOR_VERSION}/Tools/scripts/
 }
 
-termux_step_post_make_install() {
-	(
-		export TERMUX_PKG_SETUP_PYTHON=true
-		export TERMUX_SKIP_DEPCHECK=true
-		export SETUPTOOLS_INSTALL_WINDOWS_SPECIFIC_FILES=0
-		termux_step_get_dependencies_python
-
-		cd ${TERMUX_PKG_SRCDIR}/setuptools-${_SETUPTOOLS_VERSION}
-		pip install --no-deps . --target ${TERMUX_PKG_SRCDIR}/setuptools
-		cp -r ${TERMUX_PKG_SRCDIR}/setuptools/setuptools/_distutils ${TERMUX_PYTHON_HOME}/distutils
-	)
-}
+# termux_step_post_make_install() {
+# 	(
+# 		export TERMUX_PKG_SETUP_PYTHON=true
+# 		export TERMUX_SKIP_DEPCHECK=true
+# 		export SETUPTOOLS_INSTALL_WINDOWS_SPECIFIC_FILES=0
+# 		termux_step_get_dependencies_python
+#
+# 		cd ${TERMUX_PKG_SRCDIR}/setuptools-${_SETUPTOOLS_VERSION}
+# 		pip install --no-deps . --target ${TERMUX_PKG_SRCDIR}/setuptools
+# 		cp -r ${TERMUX_PKG_SRCDIR}/setuptools/setuptools/_distutils ${TERMUX_PYTHON_HOME}/distutils
+# 	)
+# }
